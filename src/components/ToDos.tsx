@@ -1,5 +1,6 @@
 import React, { Children, ReactNode } from "react";
 import ToDo from "../models/todo";
+import ToDoItem from "./ToDoItem";
 
 // const ToDos: React.FC<{items: string[]}> = (props) => {
 //   return <ul>
@@ -7,25 +8,18 @@ import ToDo from "../models/todo";
 //   </ul>;
 // };
 
-// type ToDosProps = {
-//   name: string;
-//   message: string;
-//   children?: ReactNode;  // question mark means it is optional
-// };
+type TodoProps = {
+  items: ToDo[]
+}
 
-const ToDos = ({ id, text, children }: ToDo) => {
+const ToDos = ({items}: TodoProps) => {
   return (
-    <div>
-      <p>{id}</p>
-      <p>{text}</p>
-      <p>{children}</p>
-    </div>
+    <ul>
+      {items.map((item) => {
+        return <ToDoItem key={item.id} text={item.text} />;
+      })}
+    </ul>
   );
-};
-
-ToDos.defaultProps = {
-  name: "Default Name",
-  message: "Message",
 };
 
 export default ToDos;

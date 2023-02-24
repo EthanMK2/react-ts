@@ -1,20 +1,47 @@
-import { useState } from 'react'
-import ToDos from './components/ToDos';
+import { useState } from "react";
+import ToDoItem from "./components/ToDoItem";
+import ToDos from "./components/ToDos";
+import ToDo from "./models/todo";
 
 function App() {
+  // const toDoList = [
+  //   {
+  //     text: "I am text of a todo.",
+  //     lol: ";daslfkjasdlkfj",
+  //     jdfdfdfdfd: 3434
+  //   },
+  //   {
+  //     text: "I am text of a todo.",
+  //     lol: ";daslfkjasdlkfj",
+  //     jdfdfdfdfd: 3434
+  //   },
+  //   {
+  //     text: "I am text of a todo.",
+  //     lol: ";daslfkjasdlkfj",
+  //     jdfdfdfdfd: 3434
+  //   }
+  // ]
 
-  const moreToDos = <ul>
-    <ToDos text=';dsfkj'></ToDos>
-  </ul>
+  const toDoList: ToDo[] = [
+    {
+      text: "hi",
+    },
+    {
+      text: "hidwefasf",
+    },
+    {
+      text: "hiadrsf",
+    },
+    {
+      text: "hiarwsdf",
+    },
+  ];
 
   return (
     <div className="App">
-      <ToDos text="hello" key='Kdf;'/>
-      <ToDos text="message is here" key='dkf' />
-      <ToDos text='Children After this line?' key="dfas">Hi, this is the children of ToDos. <p>PARAGRAPH</p></ToDos>
-      {moreToDos}
+      <ToDos items={toDoList} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
