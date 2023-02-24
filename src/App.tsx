@@ -5,8 +5,6 @@ function App() {
 
   const moreToDos = <ul>
     <ToDos text=';dsfkj'></ToDos>
-    <ToDos text=';dsfkj'></ToDos>
-    <ToDos text=';dsfkj'></ToDos>
   </ul>
 
   return (
