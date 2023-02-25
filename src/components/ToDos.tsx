@@ -1,6 +1,7 @@
 import React, { Children, ReactNode } from "react";
 import ToDo from "../models/todo";
 import ToDoItem from "./ToDoItem";
+import classes from "./Todos.module.css"
 
 // const ToDos: React.FC<{items: string[]}> = (props) => {
 //   return <ul>
@@ -14,7 +15,7 @@ type TodoProps = {
 
 const ToDos = ({items}: TodoProps) => {
   return (
-    <ul>
+    <ul className={classes.todos}>
       {items.map((item) => {
         return <ToDoItem key={item.id} text={item.text} />;
       })}
