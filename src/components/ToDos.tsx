@@ -1,6 +1,6 @@
-import React, { Children, ReactNode } from "react";
-import ToDo from "../models/todo";
+import React, { Children, ReactNode, useContext } from "react";
 import ToDoItem from "./ToDoItem";
+import { TodosContext } from "../store/todos-context";
 import classes from "./Todos.module.css"
 
 // const ToDos: React.FC<{items: string[]}> = (props) => {
@@ -9,15 +9,13 @@ import classes from "./Todos.module.css"
 //   </ul>;
 // };
 
-type TodoProps = {
-  items: ToDo[]
-}
+const ToDos = () => {
+  const todosCtx = useContext(TodosContext)
 
-const ToDos = ({items}: TodoProps) => {
   return (
     <ul className={classes.todos}>
-      {items.map((item) => {
-        return <ToDoItem key={item.id} text={item.text} />;
+      {todosCtx.items.map((item) => {
+        return <ToDoItem key={item.id} text={item.text} onRemove={item.onRemove} />;
       })}
     </ul>
   );

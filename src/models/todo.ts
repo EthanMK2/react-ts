@@ -15,6 +15,7 @@ type ToDo = {
   // just can't initialize with this declaration
   id?: string;
   text: string;
+  onRemove: (id: string) => void;
   children?: ReactNode;
 };
 

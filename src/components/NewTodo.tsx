@@ -1,12 +1,15 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { TodosContext } from "../store/todos-context";
 import classes from './NewTodo.module.css';
 
 // We're saying to typescript: "this prop will be a function that takes an argument of type string, and returns a value of void in this component."
-type NewTodoProps = {
-  onAddTodo: (enteredText: string) => void;
-};
+// type NewTodoProps = {
+//   onAddTodo: (enteredText: string) => void;
+// };
 
-const NewTodo = ({ onAddTodo }: NewTodoProps) => {
+const NewTodo = () => {
+  const todosCtx = useContext(TodosContext)
+
   const textInputRef = useRef<HTMLInputElement>(null); // need null for initial value
   // HTML........ is for builtin html elements for types
   // mdn on input tells us what interface it is based on
@@ -21,7 +24,7 @@ const NewTodo = ({ onAddTodo }: NewTodoProps) => {
       return;
     }
 
-    onAddTodo(enteredText);
+    todosCtx.addTodo(enteredText);
   };
 
   return (
